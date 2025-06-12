@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="auto"> 
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+	<meta name="generator" content="Astro v5.7.10">
+	<title>БЕЗПЕКА ПРИ DDOS-АТАКАХ</title>
+	<link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/blog/">
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<style>.bd-placeholder-img{font-size:1.125rem;text-anchor:middle;-webkit-user-select:none;-moz-user-select:none;user-select:none}@media (min-width: 768px){.bd-placeholder-img-lg{font-size:3.5rem}}.b-example-divider{width:100%;height:3rem;background-color:#0000001a;border:solid rgba(0,0,0,.15);border-width:1px 0;box-shadow:inset 0 .5em 1.5em #0000001a,inset 0 .125em .5em #00000026}.b-example-vr{flex-shrink:0;width:1.5rem;height:100vh}.bi{vertical-align:-.125em;fill:currentColor}.nav-scroller{position:relative;z-index:2;height:2.75rem;overflow-y:hidden}.nav-scroller .nav{display:flex;flex-wrap:nowrap;padding-bottom:1rem;margin-top:-1px;overflow-x:auto;text-align:center;white-space:nowrap;-webkit-overflow-scrolling:touch}.btn-bd-primary{--bd-violet-bg: #712cf9;--bd-violet-rgb: 112.520718, 44.062154, 249.437846;--bs-btn-font-weight: 600;--bs-btn-color: var(--bs-white);--bs-btn-bg: var(--bd-violet-bg);--bs-btn-border-color: var(--bd-violet-bg);--bs-btn-hover-color: var(--bs-white);--bs-btn-hover-bg: #6528e0;--bs-btn-hover-border-color: #6528e0;--bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);--bs-btn-active-color: var(--bs-btn-hover-color);--bs-btn-active-bg: #5a23c8;--bs-btn-active-border-color: #5a23c8}.bd-mode-toggle{z-index:1500}.bd-mode-toggle .bi{width:1em;height:1em}.bd-mode-toggle .dropdown-menu .active .bi{display:block!important}
+</style>
+</head> 
+<body style="background-color: #ffffff; background-image: url('https://www.transparenttextures.com/patterns/black-thread-light.png');"> 
+	<svg xmlns="http://www.w3.org/2000/svg" class="d-none"> 
+		<symbol id="check2" viewBox="0 0 16 16"> <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"></path> </symbol> <symbol id="circle-half" viewBox="0 0 16 16"> <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"></path> </symbol> <symbol id="moon-stars-fill" viewBox="0 0 16 16"> <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"></path> <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"></path> </symbol> <symbol id="sun-fill" viewBox="0 0 16 16"> <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"></path> </symbol> 
+	</svg> 
+	<svg xmlns="http://www.w3.org/2000/svg" class="d-none"> 
+		<symbol id="aperture" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"> <circle cx="12" cy="12" r="10"></circle> <path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94"></path> </symbol> <symbol id="cart" viewBox="0 0 16 16"> <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"></path> </symbol> <symbol id="chevron-right" viewBox="0 0 16 16"> <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"></path> </symbol> 
+	</svg> 
+	<svg xmlns="http://www.w3.org/2000/svg" class="d-none"> 
+		<symbol id="bootstrap" viewBox="0 0 118 94"> <title>Bootstrap</title> <path fill-rule="evenodd" clip-rule="evenodd" d="M24.509 0c-6.733 0-11.715 5.893-11.492 12.284.214 6.14-.064 14.092-2.066 20.577C8.943 39.365 5.547 43.485 0 44.014v5.972c5.547.529 8.943 4.649 10.951 11.153 2.002 6.485 2.28 14.437 2.066 20.577C12.794 88.106 17.776 94 24.51 94H93.5c6.733 0 11.714-5.893 11.491-12.284-.214-6.14.064-14.092 2.066-20.577 2.009-6.504 5.396-10.624 10.943-11.153v-5.972c-5.547-.529-8.934-4.649-10.943-11.153-2.002-6.484-2.28-14.437-2.066-20.577C105.214 5.894 100.233 0 93.5 0H24.508zM80 57.863C80 66.663 73.436 72 62.543 72H44a2 2 0 01-2-2V24a2 2 0 012-2h18.437c9.083 0 15.044 4.92 15.044 12.474 0 5.302-4.01 10.049-9.119 10.88v.277C75.317 46.394 80 51.21 80 57.863zM60.521 28.34H49.948v14.934h8.905c6.884 0 10.68-2.772 10.68-7.727 0-4.643-3.264-7.207-9.012-7.207zM49.948 49.2v16.458H60.91c7.167 0 10.964-2.876 10.964-8.281 0-5.406-3.903-8.178-11.425-8.178H49.948z"></path> </symbol> <symbol id="facebook" viewBox="0 0 16 16"> <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"></path> </symbol> <symbol id="instagram" viewBox="0 0 16 16"> <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"></path> </symbol> 
+	</svg> 
+
+	<div class="container"> 
+		<header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom"> 
+			<ul class="nav nav-pills"  style="align-items: center;"> 
+				<li class="nav-item"><a href="#actual" class="nav-link" aria-current="page">Актуальність теми</a></li> 
+				<li class="nav-item"><a href="#meta_task" class="nav-link">Мета і завдання</a></li> 
+				<li class="nav-item"><a href="#type_ddos" class="nav-link">Типи DDoS-атак</a></li> 
+				<li class="nav-item"><a href="#history" class="nav-link">Історичні приклади</a></li> 
+				<li class="nav-item"><a href="#etap_attack" class="nav-link">Етапи атаки</a></li> 
+				<li class="nav-item"><a href="#methods_view" class="nav-link">Методи виявлення</a></li> 
+				<li class="nav-item"><a href="#methods_defend" class="nav-link">Методи захисту</a></li> 
+				<li class="nav-item"><a href="#classter" class="nav-link">Кластеризація</a></li> 
+				<li class="nav-item"><a href="#vysnovky" class="nav-link">Висновки</a></li> 
+			</ul> 
+		</header> 
+	</div> 
+	<p> </p>
+	<br>
+	<p> </p>
+
+	<main class="container"> 
+		<div class="p-4 p-md-5 mb-4 rounded text-body-emphasis bg-body-secondary"> 
+			<div class="px-0"> 
+				<h1 class="display-7 fst-italic" align="center">МЕТОДИ І ЗАСОБИ РАННЬОГО ВИЯВЛЕННЯ ТА ПРОТИДІЇ ЗАГРОЗАМ ПОРУШЕННЯ ІНФОРМАЦІЙНОЇ БЕЗПЕКИ ПРИ DDOS-АТАКАХ</h1> 
+				<img src="pics/4.webp" style="width: 100%">
+			</div> 
+		</div> 
+		<div class="g-5"> 
+			<div class=""> 
+				<hr>
+				<article class="blog-post"> 
+					<h2 class="display-5 link-body-emphasis mb-1" id="actual">Актуальність теми</h2> 
+					<p>У сучасному цифровому середовищі кібербезпека набуває вирішального значення. Однією з найнебезпечніших та наймасштабніших загроз залишаються DDoS-атаки — навмисні дії з метою виведення з ладу інтернет-сервісів, шляхом перевантаження каналів зв'язку чи ресурсів обробки даних. Ці атаки є не лише технічною проблемою, а й інструментом політичного та економічного тиску.</p>
+					<blockquote> <p>Згідно зі звітами міжнародних аналітичних компаній (Arbor Networks, Cloudflare, Google), щороку фіксуються мільйони атак різного масштабу. Під ударом перебувають великі фінансові структури, державні установи, онлайн-магазини, а також критична інфраструктура.</p> </blockquote> 
+					<p>Особливої актуальності тема набула в умовах війни в Україні, де державні та приватні сервіси постійно стають об'єктами атак хакерських угруповань. CERT-UA регулярно публікує попередження про хвилі DDoS-атак на портали електронного урядування, банки та логістичні ресурси.</p>
+				</article> 
+				<hr>
+				<article class="blog-post"> 
+					<h2 class="display-5 link-body-emphasis mb-1" id="meta_task">Мета і завдання</h2> 
+					<p>Мета дипломної роботи полягає в дослідженні методів виявлення та протидії DDoS-атакам із застосуванням сучасних інструментів аналізу трафіку та алгоритмів машинного навчання. Серед основних завдань: детальне вивчення типів атак, огляд засобів захисту, практичне моделювання атаки та реалізація системи класифікації трафіку.</p>
+					<blockquote> <p>Дослідження передбачає аналіз підходів, які дозволяють виявляти ознаки аномального трафіку на ранніх етапах. Це досягається за рахунок побудови моделей поведінки нормального користувача, застосування кластеризації та багаторівневої фільтрації.</p> </blockquote> 
+				</article> 
+				<hr>
+				<article class="blog-post"> 
+					<h2 class="display-5 link-body-emphasis mb-1" id="type_ddos">Типи DDoS-атак</h2> 
+					<p>Класифікація DDoS-атак базується на рівнях моделі OSI, зокрема:</p>
+					<ul> 
+						<li><b>Атаки на мережевому рівні (Layer 3):</b> ICMP Flood, Ping of Death.</li> 
+						<li><b>Атаки на транспортному рівні (Layer 4):</b> SYN Flood, UDP Flood, TCP Reset.</li> 
+						<li><b>Атаки на рівні додатків (Layer 7):</b> HTTP Flood, Slowloris, DNS Query Flood.</li> 
+					</ul> 
+					<img src="pics/1.png">
+					<blockquote> <p>Окремо виокремлюються мультивекторні атаки, які поєднують декілька механізмів — наприклад, UDP Flood із SYN Flood. Також існують новітні загрози типу Low-and-Slow, де атака імітує поведінку легального користувача з метою обходу захисту.</p> </blockquote> 
+				</article> 
+				<hr>
+				<article class="blog-post"> 
+					<h2 class="display-5 link-body-emphasis mb-1" id="history">Історичні приклади</h2> 
+					<p>У 2016 році хакерське угруповання використало ботнет Mirai для атаки на DNS-провайдера Dyn. Унаслідок цього стався масштабний збій роботи таких ресурсів як Twitter, Netflix, Reddit, GitHub.</p>
+					<blockquote> <p>У 2022 році Google зафіксував рекордну атаку на Cloud Armor — понад 46 мільйонів HTTPS-запитів/сек. У 2024 році український банк Monobank зазнав атаки потужністю 580 мільйонів запитів/хв. Ці кейси демонструють еволюцію і зростання потужностей ботнетів.</p> </blockquote> 
+				</article> 
+				<hr>
+				<article class="blog-post"> 
+					<h2 class="display-5 link-body-emphasis mb-1" id="etap_attack">Етапи атаки</h2> 
+					<p>Класична структура DDoS-атаки включає:</p>
+					<ol> 
+						<li>Розвідку та вибір цілі.</li> 
+						<li>Інфікування пристроїв та створення ботнету.</li> 
+						<li>Тестову атаку для перевірки доступності та захисту.</li> 
+						<li>Основну атаку (флудинг, перевантаження).</li> 
+						<li>Підтримання навантаження та обходи захисту.</li> 
+					</ol> 
+				</article> 
+				<hr>
+				<article class="blog-post"> 
+					<h2 class="display-5 link-body-emphasis mb-1" id="methods_view">Методи виявлення</h2> 
+					<p>Виявлення DDoS-атак здійснюється за допомогою різних методів: від простих сигнатурних систем до складних поведінкових моделей. Основними інструментами є системи виявлення вторгнень (IDS), моніторинг трафіку, алгоритми машинного навчання.</p>
+					<img src="pics/2.jpg">
+					<blockquote> <p>Сигнатурні методи порівнюють трафік з відомими шаблонами атак. Поведінкові — аналізують аномалії в мережевій активності. Також активно застосовуються метрики: середній час відповіді, кількість запитів за одиницю часу, частота з'єднань з одного IP тощо.</p> </blockquote> 
+					<p>Серед інструментів: Snort, Suricata, Zeek, NetFlow. Також використовуються комерційні продукти — Arbor APS, Cisco Stealthwatch, Fortinet FortiDDoS.</p>
+				</article> 
+				<hr>
+				<article class="blog-post"> 
+					<h2 class="display-5 link-body-emphasis mb-1" id="methods_defend">Методи захисту</h2> 
+					<p>Захист від DDoS охоплює декілька рівнів:</p>
+					<ul> 
+						<li><b>Інфраструктурний рівень:</b> блокування трафіку за допомогою ACL, Blackhole Routing, Firewalls.</li> 
+						<li><b>Мережевий рівень:</b> використання CDN, балансувальників навантаження, геофільтрації.</li> 
+						<li><b>Прикладний рівень:</b> застосування WAF, CAPTCHA, rate limiting, обфускація URL.</li> 
+					</ul> 
+					<blockquote> <p>Найбільш ефективними є хмарні сервіси захисту: Cloudflare, Akamai, Imperva, Radware. Вони забезпечують миттєве масштабування захисту та автоматичне розпізнавання шаблонів атак.</p> </blockquote> 
+					<img src="pics/3.jpg">
+				</article> 
+				<hr>
+				<article class="blog-post"> 
+					<h2 class="display-5 link-body-emphasis mb-1" id="classter">Кластеризація</h2> 
+					<p>Метод k-means — це один з найпопулярніших алгоритмів кластеризації. Його суть полягає в об'єднанні точок (мережевих подій) у групи за схожістю. Це дозволяє відділити аномальний трафік від нормального без попереднього маркування.</p>
+					<p>Етапи алгоритму:</p>
+					<ol> 
+						<li>Вибір кількості кластерів (k).</li> 
+						<li>Ініціалізація центроїдів.</li> 
+						<li>Присвоєння кожної точки до найближчого центроїду.</li> 
+						<li>Оновлення положення центроїдів.</li> 
+						<li>Повторення до збіжності.</li> 
+					</ol> 
+					<blockquote> <p>Цей підхід дозволяє створити адаптивну систему, що вчиться від поведінки реального трафіку.</p> </blockquote> 
+				</article> 
+				<hr>
+				<article class="blog-post"> 
+					<h2 class="display-5 link-body-emphasis mb-1" id="vysnovky">Висновки</h2> 
+					<p>У ході дослідження було проаналізовано сутність та види DDoS-атак, їхню історію, методи виявлення та засоби захисту. Запропоновано класифікаційний підхід на основі алгоритму k-means, який дозволяє ефективно виявляти підозрілу активність.</p>
+					<blockquote> <p>Практична цінність полягає в поєднанні методів статистичного аналізу з машинним навчанням. Отримані результати можуть бути застосовані для побудови систем раннього попередження кіберзагроз.</p> </blockquote> 
+				</article> 
+			</div> 
+		</div> 
+	</main> 
+	<div class="container"> 
+		<footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top"> 
+			<div class="col-md-4 d-flex align-items-center"> 
+				
+				<span class="mb-3 mb-md-0 text-body-secondary">&copy; 2025 Кривенков Вадим</span> 
+			</div> 
+			<ul class="nav col-md-4 justify-content-end list-unstyled d-flex"> 
+				<li class="ms-3"><a class="text-body-secondary" href="#" aria-label="Instagram"><svg class="bi" width="24" height="24" aria-hidden="true"><use xlink:href="#instagram"></use></svg></a></li> 
+				<li class="ms-3"><a class="text-body-secondary" href="#" aria-label="Facebook"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"></use></svg></a></li> 
+			</ul> 
+		</footer> 
+	</div>
+	<script src="js/bootstrap.bundle.min.js"></script>
